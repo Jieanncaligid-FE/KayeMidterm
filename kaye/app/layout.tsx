@@ -2,8 +2,10 @@ import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kaye Portfolio",
   description: "Portfolio website of Kaye Rucas",
 };
@@ -18,7 +20,7 @@ const themeInitScript = `
 })();
 `;
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>

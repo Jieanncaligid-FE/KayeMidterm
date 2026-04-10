@@ -1,4 +1,35 @@
-export const personalInfo = {
+export type SocialLabel = "Facebook" | "Instagram" | "GitHub";
+
+export type SocialLink = {
+  label: SocialLabel;
+  href: string;
+};
+
+export type Project = {
+  slug: string;
+  category: string;
+  year: string;
+  month: string;
+  day: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  liveUrl: string | null;
+  repoUrl: string | null;
+};
+
+export const personalInfo: {
+  name: string;
+  role: string;
+  summary: string;
+  shortSummary: string;
+  contact: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socials: SocialLink[];
+} = {
   name: "Kaye Rucas",
   role: "Web Designer",
   summary:
@@ -17,9 +48,9 @@ export const personalInfo = {
   ],
 };
 
-export const skills = ["JavaScript", "React/Next.js", "TailwindCSS", "C#", "Figma"];
+export const skills: string[] = ["JavaScript", "React/Next.js", "TailwindCSS", "C#", "Figma"];
 
-export const personalDetails = [
+export const personalDetails: { label: string; value: string }[] = [
   { label: "Birth Date", value: "September 19, 2005" },
   { label: "Birth Place", value: "Cebu City, Philippines" },
   { label: "Age", value: "19" },
@@ -29,14 +60,14 @@ export const personalDetails = [
   { label: "Nationality", value: "Filipino" },
 ];
 
-export const education = [
+export const education: { level: string; school: string }[] = [
   { level: "Elementary", school: "Maribago Elementary School" },
   { level: "Junior High School", school: "Maribago High School" },
   { level: "Senior High School", school: "Rizwoods Colleges Montessori School" },
   { level: "College", school: "Cordova Public College" },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     slug: "midterm-app-devs",
     category: "web",

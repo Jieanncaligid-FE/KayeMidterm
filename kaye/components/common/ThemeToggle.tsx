@@ -2,7 +2,7 @@
 
 import { useTheme } from "../providers/theme-provider";
 
-function SunIcon({ className }) {
+function SunIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -22,7 +22,7 @@ function SunIcon({ className }) {
   );
 }
 
-function MoonIcon({ className }) {
+function MoonIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}

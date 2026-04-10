@@ -1,4 +1,8 @@
-export default async function ArchiveDatePage({ params }) {
+export default async function ArchiveDatePage({
+  params,
+}: {
+  params: Promise<{ date?: string[] }>;
+}) {
   const { date } = await params;
 
   const parts = date || [];
