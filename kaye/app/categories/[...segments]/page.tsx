@@ -1,4 +1,8 @@
-export default async function CategorySegmentsPage({ params }) {
+export default async function CategorySegmentsPage({
+  params,
+}: {
+  params: Promise<{ segments: string[] }>;
+}) {
   const { segments } = await params;
 
   return (

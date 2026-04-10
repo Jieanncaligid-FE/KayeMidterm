@@ -1,8 +1,10 @@
-function iconWrap(className) {
+import type { SocialLabel } from "@/data/portfolio";
+
+function iconWrap(className: string) {
   return `h-5 w-5 ${className}`;
 }
 
-export function SocialIcon({ label }) {
+export function SocialIcon({ label }: { label: SocialLabel }) {
   const common = "fill-current";
   switch (label) {
     case "Facebook":

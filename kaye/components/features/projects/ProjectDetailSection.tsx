@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { Project } from "@/data/portfolio";
 
-export default function ProjectDetailSection({ project }) {
+export default function ProjectDetailSection({ project }: { project: Project | undefined }) {
   if (!project) {
     return (
       <section className="rounded-2xl border border-pink-200 bg-white p-6 dark:border-pink-900 dark:bg-[#1f1525]">

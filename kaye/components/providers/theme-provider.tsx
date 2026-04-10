@@ -2,11 +2,17 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 
-// 1. Create the context
-const ThemeContext = createContext(undefined);
+type Theme = "light" | "dark";
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
+type ThemeContextValue = {
+  theme: Theme;
+  toggleTheme: () => void;
+};
+
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>("light");
 
   // Logic to handle the actual theme switching
   const toggleTheme = () => {
@@ -27,8 +33,6 @@ export function ThemeProvider({ children }) {
   );
 }
 
-// 2. THIS IS THE MISSING PIECE:
-// You must explicitly export a function named useTheme
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
