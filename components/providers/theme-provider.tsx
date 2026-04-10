@@ -13,18 +13,31 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState(false); // Add this
 
-  // Logic to handle the actual theme switching
+  // Prevent "Hydration Mismatch" by waiting for mount
+  useEffect(() => {
+    setMounted(true);
+    // Optional: Load saved theme from localStorage so it stays dark when you refresh
+    const savedTheme = localStorage.getItem("theme") as Theme;
+    if (savedTheme) setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const root = window.document.documentElement;
+    root.classList.remove("light", "dark");
+    root.classList.add(theme);
+    localStorage.setItem("theme", theme); // Save choice
+  }, [theme, mounted]);
+
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  // Sync theme with the HTML document class for Tailwind dark: mode
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-  }, [theme]);
+  // If not mounted, hide content or return null to avoid a "flash" of white
+  if (!mounted) return <>{children}</>;
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
