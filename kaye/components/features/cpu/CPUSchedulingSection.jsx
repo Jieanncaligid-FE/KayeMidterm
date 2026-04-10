@@ -1,5 +1,3 @@
-import PinkScheduling from "@/src/components/PinkScheduling";
-
 export default function CPUSchedulingSection() {
   return (
     <section className="space-y-6">
@@ -9,7 +7,7 @@ export default function CPUSchedulingSection() {
           Shortest Job First (SJF) simulation tool
         </p>
       </div>
-      <PinkScheduling />
+      {/* PinkScheduling component to be implemented */}
     </section>
   );
 }
