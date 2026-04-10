@@ -12,13 +12,11 @@ function resolveTheme() {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => resolveTheme());
 
   useEffect(() => {
-    const initialTheme = resolveTheme();
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prev) => {
