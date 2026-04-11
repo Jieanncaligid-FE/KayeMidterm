@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "../providers/theme-provider";
+import { useTheme } from "@/components/providers/theme-provider";
 
 function SunIcon({ className }: { className?: string }) {
   return (
