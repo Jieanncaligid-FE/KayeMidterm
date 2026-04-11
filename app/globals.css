@@ -1,4 +1,8 @@
-/* How shadcn handles what you're doing manually */
+@import "tailwindcss";
+
+/* Manual theme toggle: `dark` class on <html> (matches next-themes + layout script) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --background: 350 100% 98%; /* from-rose-50 */

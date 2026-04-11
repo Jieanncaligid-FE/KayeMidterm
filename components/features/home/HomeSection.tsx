@@ -24,10 +24,10 @@ export default function HomeSection() {
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-pink-600 dark:text-pink-400">
               {personalInfo.role}
             </p>
-            <h1 className="mt-2 bg-gradient-to-r from-pink-900 to-rose-800 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-pink-100 dark:to-rose-200 sm:text-4xl">
+            <h1 className="mt-2 bg-gradient-to-r from-pink-900 to-rose-800 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-pink-100 dark:to-rose-200 dark:text-pink-50 sm:text-4xl">
               {personalInfo.name.toUpperCase()}
             </h1>
-            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-300">
+            <p className="mt-4 text-base leading-relaxed text-neutral-600 dark:text-neutral-200">
               {personalInfo.summary}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">

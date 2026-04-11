@@ -43,8 +43,8 @@ function MoonIcon({ className }: { className?: string }) {
 }
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  const isLight = theme === "light";
+  const { resolvedTheme, toggleTheme } = useTheme();
+  const isLight = resolvedTheme !== "dark";
 
   return (
     <button
