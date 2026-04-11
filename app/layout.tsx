@@ -4,8 +4,7 @@ import Footer from "@/components/common/Footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-// 1. Add this import
-import Script from "next/script"; 
+import Script from "next/script"; // 1. Import this
 
 export const metadata: Metadata = {
   title: "Kaye Portfolio",
@@ -27,9 +26,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className="flex min-h-screen flex-col bg-gradient-to-b from-rose-50 to-pink-100 text-neutral-900 transition-colors dark:from-[#120d17] dark:to-[#1e1224] dark:text-neutral-100">
-        {/* 2. Use the Next.js Script component with 'beforeInteractive' strategy */}
+        {/* 2. Use the Next.js Script component instead of raw <script> */}
         <Script
-          id="theme-init"
+          id="theme-strategy"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />

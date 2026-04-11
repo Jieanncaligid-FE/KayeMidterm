@@ -1,13 +1,9 @@
-@import "tailwindcss";
-
-
-body {
-  margin: 0;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+/* How shadcn handles what you're doing manually */
+@layer base {
+  :root {
+    --background: 350 100% 98%; /* from-rose-50 */
+  }
+  .dark {
+    --background: 275 30% 7%; /* dark:from-[#120d17] */
+  }
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
